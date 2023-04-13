@@ -17,6 +17,7 @@ jobs:
     steps:
     - name: create pull request
       run: gh pr create -B base_branch -H branch_to_merge --repo efreymiller-r7/razor --title 'Merge branch_to_merge into base_branch' --body 'Created by Github action'
-      
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: echo hash
+      run: echo '${{ github.event.pull_request.head.sha }}'
